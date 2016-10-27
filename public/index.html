@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <title>Contact List</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+</head>
+<body>
+
+<div class="container" ng-controller="AppCtrl">
+  <h1>Contact List App</h1>
+
+  <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Action</th>
+        </tr>        
+      </thead>
+      <tbody>
+      <tr>
+        <td><input type="text" class="form-control" 
+            ng-model="contact.name">
+        </td>
+        <td><input type="text" class="form-control" 
+            ng-model="contact.email">
+        </td>
+        <td><input type="text" class="form-control" 
+            ng-model="contact.number">
+        </td>
+        <td>
+            <button class="btn btn-primary" ng-click="addContact()">Add Contact</button>
+        </td>
+        <td>
+            <button class="btn btn-info" ng-click="update()">Update</button>
+
+            <button class="btn btn-info" ng-click="deselect()">Clear</button>
+        </td>
+      </tr>
+        <tr ng-repeat="contact in contactlist">
+          <td>{{contact.name}}</td>
+          <td>{{contact.email}}</td>
+          <td>{{contact.number}}</td> 
+          <td><button class="btn btn-danger" ng-click="remove(contact._id)">Delete</button></td>    
+          <td><button class="btn btn-danger" ng-click="edit(contact._id)">Edit</button>
+
+          </td>      
+        </tr>        
+      </tbody>
+  </table>
+
+
+
+
+</div>
+
+
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+<script type="text/javascript" src="controllers/controllers.js"></script>
+
+</body>
+</html>
+
