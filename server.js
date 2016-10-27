@@ -3,7 +3,7 @@ var app = express();
 
 /*var mongojs = require('mongojs');
 var db = mongojs('contactlist', ['contactlist']);*/
-
+var port = process.env.PORT || 3000;
 var bodyParser = require('body-parser');
 
 /*app.get('/', function(req, res){
@@ -62,5 +62,5 @@ app.put('/contactlist/:id', function(req, res){
 
 
 
-app.listen(3000);
+app.listen(port);
 console.log("Server running on 3000");
