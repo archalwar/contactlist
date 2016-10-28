@@ -2,8 +2,12 @@ var express = require('express');
 var app = express();
 
 var bodyParser = require('body-parser');
-var mongojs = require('mongojs');
+
 var mongodb = require('mongodb');
+
+
+var port = process.env.PORT || 3000;
+
 
 var uri = 'mongodb://amarcontact:amarcontact@ds135577.mlab.com:35577/contactlist';
 
@@ -16,15 +20,12 @@ app.use(bodyParser.json());
 mongodb.MongoClient.connect(uri, (err, database) => {
   if (err) return console.log(err)
   myDB = database
-  app.listen(3000, () => {
+  app.listen(port, () => {
     console.log('listening on 3000')
   })
 })
 
 
-var db = mongojs('contactlist', ['contactlist']);
-
-var port = process.env.PORT || 3000;
 /*app.get('/', function(req, res){
 	res.send("Hellow world server.js");
 });
